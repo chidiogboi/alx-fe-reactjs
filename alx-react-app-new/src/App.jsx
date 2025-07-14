@@ -1,19 +1,20 @@
-// src/App.jsx
 import Header from './components/Header';
 import UserProfile from './components/UserProfile';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
-import ProfilePage from './ProfilePage';
-import UserContext from './UserContext';
+import Counter from './components/Counter';
 
 function App() {
-  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
-
   return (
-    <UserContext.Provider value={userData}>
-      <ProfilePage />
-    </UserContext.Provider>
+    <div>
+      <Header />
+      <UserProfile name="Jane Doe" age={28} bio="Frontend developer and traveler." />
+      <MainContent />
+      <Counter />
+      <Footer />
+    </div>
   );
 }
 
 export default App;
+
