@@ -5,14 +5,25 @@ const RecipeList = () => {
   const recipes = useRecipeStore((state) => state.recipes);
   const filteredRecipes = useRecipeStore((state) => state.filteredRecipes);
   const searchTerm = useRecipeStore((state) => state.searchTerm);
+  const favorites = useRecipeStore((state) => state.favorites);
+  const addFavorite = useRecipeStore((state) => state.addFavorite);
+  const removeFavorite = useRecipeStore((state) => state.removeFavorite);
   
   // Use filtered recipes if there's a search term, otherwise show all recipes
   const displayRecipes = searchTerm ? filteredRecipes : recipes;
 
+  const toggleFavorite = (recipeId) => {
+    if (favorites.includes(recipeId)) {
+      removeFavorite(recipeId);
+    } else {
+      addFavorite(recipeId);
+    }
+  };
+
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-        <h2>Recipe List</h2>
+        <h2>All Recipes</h2>
         {searchTerm && (
           <span style={{ color: '#007bff', fontWeight: 'bold' }}>
             Found {filteredRecipes.length} recipe(s)
@@ -42,10 +53,28 @@ const RecipeList = () => {
                 padding: '20px',
                 borderRadius: '8px',
                 backgroundColor: '#fff',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                position: 'relative'
               }}
             >
-              <h3 style={{ color: '#007bff', marginBottom: '10px' }}>
+              <button
+                onClick={() => toggleFavorite(recipe.id)}
+                style={{
+                  position: 'absolute',
+                  top: '15px',
+                  right: '15px',
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                  fontSize: '24px',
+                  cursor: 'pointer',
+                  padding: '5px'
+                }}
+                title={favorites.includes(recipe.id) ? 'Remove from favorites' : 'Add to favorites'}
+              >
+                {favorites.includes(recipe.id) ? '❤️' : '🤍'}
+              </button>
+              
+              <h3 style={{ color: '#007bff', marginBottom: '10px', paddingRight: '50px' }}>
                 {recipe.title}
               </h3>
               <p style={{ color: '#6c757d', lineHeight: '1.5', marginBottom: '15px' }}>
