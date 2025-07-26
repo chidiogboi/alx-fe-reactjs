@@ -3,6 +3,7 @@ import './App.css'
 import RecipeList from './components/RecipeList'
 import AddRecipeForm from './components/AddRecipeForm'
 import RecipeDetails from './components/RecipeDetails'
+import SearchBar from './components/SearchBar'
 
 function App() {
   return (
@@ -10,9 +11,12 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={
-            <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
-              <h1>Recipe Sharing Application</h1>
+            <div style={{ padding: '20px', maxWidth: '900px', margin: '0 auto' }}>
+              <h1 style={{ textAlign: 'center', color: '#007bff', marginBottom: '30px' }}>
+                Recipe Sharing Application
+              </h1>
               <AddRecipeForm />
+              <SearchBar />
               <RecipeList />
             </div>
           } />
