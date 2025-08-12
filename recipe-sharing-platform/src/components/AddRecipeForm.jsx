@@ -7,7 +7,7 @@ const AddRecipeForm = () => {
     title: '',
     summary: '',
     ingredients: '',
-    instructions: '',
+    steps: '',
     image: ''
   });
   const [errors, setErrors] = useState({});
@@ -17,7 +17,7 @@ const AddRecipeForm = () => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: e.target.value
     }));
     
     // Clear error when user starts typing
@@ -50,8 +50,8 @@ const AddRecipeForm = () => {
       }
     }
 
-    if (!formData.instructions.trim()) {
-      newErrors.instructions = 'Cooking instructions are required';
+    if (!formData.steps.trim()) {
+      newErrors.steps = 'Preparation steps are required';
     }
 
     if (!formData.image.trim()) {
@@ -207,28 +207,28 @@ const AddRecipeForm = () => {
                 )}
               </div>
 
-              {/* Instructions */}
+              {/* Instructions/Steps */}
               <div>
-                <label htmlFor="instructions" className="block text-sm font-medium text-gray-700 mb-2">
-                  Cooking Instructions * <span className="text-sm text-gray-500">(one step per line)</span>
+                <label htmlFor="steps" className="block text-sm font-medium text-gray-700 mb-2">
+                  Preparation Steps * <span className="text-sm text-gray-500">(one step per line)</span>
                 </label>
                 <textarea
-                  id="instructions"
-                  name="instructions"
-                  value={formData.instructions}
+                  id="steps"
+                  name="steps"
+                  value={formData.steps}
                   onChange={handleChange}
                   rows="8"
                   className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
-                    errors.instructions ? 'border-red-500' : 'border-gray-300'
+                    errors.steps ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="Preheat oven to 375°F&#10;Mix dry ingredients in a bowl&#10;Cream butter and sugars&#10;..."
                 ></textarea>
-                {errors.instructions && (
+                {errors.steps && (
                   <p className="mt-1 text-sm text-red-600 flex items-center">
                     <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    {errors.instructions}
+                    {errors.steps}
                   </p>
                 )}
               </div>
