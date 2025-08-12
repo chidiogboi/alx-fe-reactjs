@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    "image": "https://via.placeholder.com/300x200/4A90E2/ffffff?text=Spaghetti+Carbonara",
+    "ingredients": [
+      "400g spaghetti",
+      "200g pancetta or bacon",
+      "3 large eggs",
+      "100g Pecorino Romano cheese, grated",
+      "Black pepper to taste",
+      "Salt for pasta water"
+    ],
+    "instructions": [
+      "Bring a large pot of salted water to boil and cook spaghetti according to package directions.",
+      "While pasta cooks, heat a large skillet over medium heat and cook pancetta until crispy.",
+      "In a bowl, whisk together eggs, grated cheese, and black pepper.",
+      "Drain pasta, reserving 1 cup pasta water. Add hot pasta to skillet with pancetta.",
+      "Remove from heat and quickly stir in egg mixture, adding pasta water as needed to create a creamy sauce.",
+      "Serve immediately with extra cheese and black pepper."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken cooked in a smooth buttery & creamy tomato based gravy.",
+    "image": "https://via.placeholder.com/300x200/E94B3C/ffffff?text=Chicken+Tikka",
+    "ingredients": [
+      "500g chicken breast, cut into chunks",
+      "1 cup plain yogurt",
+      "2 tbsp tikka masala spice blend",
+      "400ml coconut milk",
+      "400g canned tomatoes",
+      "1 large onion, diced",
+      "3 garlic cloves, minced",
+      "Fresh cilantro for garnish"
+    ],
+    "instructions": [
+      "Cut chicken into chunks and marinate in yogurt and half the spice blend for 30 minutes.",
+      "Grill or pan-fry chicken pieces until cooked through and slightly charred. Set aside.",
+      "In the same pan, sauté diced onion and garlic until soft and fragrant.",
+      "Add remaining spices and cook for 1 minute until aromatic.",
+      "Add canned tomatoes and simmer for 10 minutes, breaking them down.",
+      "Stir in coconut milk and cooked chicken. Simmer for 5 more minutes.",
+      "Garnish with fresh cilantro and serve with basmati rice."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Chocolate Chip Cookies",
+    "summary": "Classic homemade chocolate chip cookies that are crispy on the outside and chewy on the inside.",
+    "image": "https://via.placeholder.com/300x200/8B4513/ffffff?text=Chocolate+Cookies",
+    "ingredients": [
+      "2 cups all-purpose flour",
+      "1 tsp baking soda",
+      "1 tsp salt",
+      "1 cup butter, softened",
+      "3/4 cup brown sugar",
+      "3/4 cup white sugar",
+      "2 large eggs",
+      "2 tsp vanilla extract",
+      "2 cups chocolate chips"
+    ],
+    "instructions": [
+      "Preheat oven to 375°F (190°C).",
+      "In a bowl, whisk together flour, baking soda, and salt.",
+      "In another bowl, cream butter and both sugars until light and fluffy.",
+      "Beat in eggs one at a time, then add vanilla extract.",
+      "Gradually mix in flour mixture until just combined.",
+      "Fold in chocolate chips.",
+      "Drop rounded tablespoons of dough onto ungreased baking sheets.",
+      "Bake for 9-11 minutes or until golden brown. Cool on baking sheet for 2 minutes before transferring."
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Caesar Salad",
+    "summary": "Fresh romaine lettuce with creamy Caesar dressing, croutons, and parmesan cheese.",
+    "image": "https://via.placeholder.com/300x200/228B22/ffffff?text=Caesar+Salad",
+    "ingredients": [
+      "2 heads romaine lettuce, chopped",
+      "1/2 cup mayonnaise",
+      "2 tbsp fresh lemon juice",
+      "2 garlic cloves, minced",
+      "1 tsp Worcestershire sauce",
+      "1/2 cup grated Parmesan cheese",
+      "2 cups croutons",
+      "Salt and pepper to taste"
+    ],
+    "instructions": [
+      "Wash and chop romaine lettuce into bite-sized pieces.",
+      "In a small bowl, whisk together mayonnaise, lemon juice, minced garlic, and Worcestershire sauce.",
+      "Season dressing with salt and pepper to taste.",
+      "In a large bowl, toss lettuce with dressing until evenly coated.",
+      "Add croutons and half the Parmesan cheese. Toss again.",
+      "Serve immediately topped with remaining Parmesan cheese."
+    ]
+  }
+]
