@@ -20,10 +20,12 @@ function AddTodoForm({ onAdd }) {
           onChange={(e) => setText(e.target.value)}
           placeholder="Add a new todo"
           className="flex-1 p-2 border rounded"
+          data-testid="todo-input"
         />
         <button
           type="submit"
           className="bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+          data-testid="add-button"
         >
           Add
         </button>

@@ -37,6 +37,7 @@ function TodoList() {
         {todos.map((todo) => (
           <li
             key={todo.id}
+            data-testid={`todo-item-${todo.text}`}
             className={`flex justify-between items-center p-2 mb-2 bg-white rounded shadow ${
               todo.completed ? 'line-through text-gray-500' : ''
             }`}
@@ -44,6 +45,7 @@ function TodoList() {
           >
             <span>{todo.text}</span>
             <button
+              data-testid={`delete-button-${todo.text}`}
               onClick={(e) => {
                 e.stopPropagation();
                 deleteTodo(todo.id);

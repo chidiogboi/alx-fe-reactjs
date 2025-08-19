@@ -2,27 +2,31 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import TodoList from '../components/TodoList';
 
 describe('TodoList Component', () => {
-  test('renders initial todos', () => {
+  // Test 1: Verify initial todos are rendered
+  test('renders initial todo items correctly', () => {
     render(<TodoList />);
-    expect(screen.getByText('Learn React')).toBeInTheDocument();
-    expect(screen.getByText('Build Todo App')).toBeInTheDocument();
-    expect(screen.getByText('Write Tests')).toBeInTheDocument();
+    expect(screen.getByTestId('todo-item-Learn React')).toBeInTheDocument();
+    expect(screen.getByTestId('todo-item-Build Todo App')).toBeInTheDocument();
+    expect(screen.getByTestId('todo-item-Write Tests')).toBeInTheDocument();
   });
 
-  test('adds a new todo', () => {
+  // Test 2: Verify adding a new todo
+  test('adds a new todo when form is submitted', () => {
     render(<TodoList />);
-    const input = screen.getByPlaceholderText('Add a new todo');
-    const addButton = screen.getByText('Add');
+    const input = screen.getByTestId('todo-input');
+    const addButton = screen.getByTestId('add-button');
 
-    fireEvent.change(input, { target: { value: 'New Todo' } });
+    fireEvent.change(input, { target: { value: 'Test Todo' } });
     fireEvent.click(addButton);
 
-    expect(screen.getByText('New Todo')).toBeInTheDocument();
+    expect(screen.getByTestId('todo-item-Test Todo')).toBeInTheDocument();
+    expect(input).toHaveValue(''); // Verify input is cleared
   });
 
-  test('toggles a todo completion status', () => {
+  // Test 3: Verify toggling a todo's completion status
+  test('toggles todo completion status when clicked', () => {
     render(<TodoList />);
-    const todoItem = screen.getByText('Learn React').closest('li');
+    const todoItem = screen.getByTestId('todo-item-Learn React');
 
     expect(todoItem).not.toHaveClass('line-through');
     fireEvent.click(todoItem);
@@ -31,11 +35,24 @@ describe('TodoList Component', () => {
     expect(todoItem).not.toHaveClass('line-through');
   });
 
-  test('deletes a todo', () => {
+  // Test 4: Verify deleting a todo
+  test('deletes a todo when delete button is clicked', () => {
     render(<TodoList />);
-    const deleteButton = screen.getAllByText('Delete')[0];
+    const deleteButton = screen.getByTestId('delete-button-Learn React');
 
     fireEvent.click(deleteButton);
-    expect(screen.queryByText('Learn React')).not.toBeInTheDocument();
+    expect(screen.queryByTestId('todo-item-Learn React')).not.toBeInTheDocument();
+  });
+
+  // Test 5: Verify form does not add empty todo
+  test('does not add empty todo when form is submitted', () => {
+    render(<TodoList />);
+    const input = screen.getByTestId('todo-input');
+    const addButton = screen.getByTestId('add-button');
+
+    fireEvent.change(input, { target: { value: '' } });
+    fireEvent.click(addButton);
+
+    expect(screen.queryByTestId('todo-item-')).not.toBeInTheDocument();
   });
 });
