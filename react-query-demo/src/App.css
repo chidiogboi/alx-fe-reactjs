@@ -1,0 +1,56 @@
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+.posts-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.post {
+  border: 1px solid #ddd;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.post h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.post p {
+  color: #666;
+  line-height: 1.4;
+}
+
+.loading {
+  font-size: 18px;
+  color: #666;
+}
+
+.error {
+  color: red;
+  font-size: 16px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
