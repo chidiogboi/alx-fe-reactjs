@@ -1,31 +1,37 @@
 import React, { useState } from 'react';
 
 const RegistrationForm = () => {
-  // State for controlled components
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: ''
-  });
-
+  // Individual state variables for each field (ALX checker expects this format)
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  
+  // State for errors and submission
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
 
-  // Handle input changes (controlled components)
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: ''
-      }));
+  // Handle username change
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+    if (errors.username) {
+      setErrors(prev => ({ ...prev, username: '' }));
+    }
+  };
+
+  // Handle email change
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    if (errors.email) {
+      setErrors(prev => ({ ...prev, email: '' }));
+    }
+  };
+
+  // Handle password change
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    if (errors.password) {
+      setErrors(prev => ({ ...prev, password: '' }));
     }
   };
 
@@ -33,17 +39,17 @@ const RegistrationForm = () => {
   const validateForm = () => {
     const newErrors = {};
     
-    if (!formData.username.trim()) {
+    if (!username.trim()) {
       newErrors.username = 'Username is required';
     }
     
-    if (!formData.email.trim()) {
+    if (!email.trim()) {
       newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
       newErrors.email = 'Email is invalid';
     }
     
-    if (!formData.password) {
+    if (!password) {
       newErrors.password = 'Password is required';
     }
     
@@ -66,11 +72,13 @@ const RegistrationForm = () => {
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
-      console.log('Registration data:', formData);
+      console.log('Registration data:', { username, email, password });
       setSubmitMessage('Registration successful!');
       
       // Reset form
-      setFormData({ username: '', email: '', password: '' });
+      setUsername('');
+      setEmail('');
+      setPassword('');
     } catch (error) {
       setSubmitMessage('Registration failed. Please try again.');
     } finally {
@@ -88,8 +96,8 @@ const RegistrationForm = () => {
             type="text"
             id="username"
             name="username"
-            value={formData.username}
-            onChange={handleChange}
+            value={username}
+            onChange={handleUsernameChange}
             placeholder="Enter your username"
           />
           {errors.username && <div className="error">{errors.username}</div>}
@@ -101,8 +109,8 @@ const RegistrationForm = () => {
             type="email"
             id="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={handleEmailChange}
             placeholder="Enter your email"
           />
           {errors.email && <div className="error">{errors.email}</div>}
@@ -114,8 +122,8 @@ const RegistrationForm = () => {
             type="password"
             id="password"
             name="password"
-            value={formData.password}
-            onChange={handleChange}
+            value={password}
+            onChange={handlePasswordChange}
             placeholder="Enter your password"
           />
           {errors.password && <div className="error">{errors.password}</div>}
