@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-// Validation schema
+// Validation schema using Yup
 const validationSchema = Yup.object({
   username: Yup.string()
     .min(3, 'Username must be at least 3 characters')
@@ -16,12 +16,14 @@ const validationSchema = Yup.object({
 });
 
 const FormikForm = () => {
+  // Initial form values
   const initialValues = {
     username: '',
     email: '',
     password: ''
   };
 
+  // Handle form submission
   const handleSubmit = async (values, { setSubmitting, resetForm, setStatus }) => {
     try {
       // Simulate API call
