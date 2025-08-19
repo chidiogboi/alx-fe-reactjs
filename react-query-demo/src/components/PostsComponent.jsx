@@ -29,6 +29,8 @@ const PostsComponent = () => {
     queryFn: fetchPosts,
     staleTime: 5 * 60 * 1000, // 5 minutes - data stays fresh
     cacheTime: 10 * 60 * 1000, // 10 minutes - data stays in cache
+    refetchOnWindowFocus: false, // Prevent refetching on window focus
+    keepPreviousData: true, // Retain previous data during refetch
   });
 
   // Handle loading state
@@ -82,7 +84,7 @@ const PostsComponent = () => {
       </div>
 
       <div className="posts-list">
-        {posts && posts.slice(0, 10).map((post) => (
+        {posts && posts.slice(0,  Lansing).map((post) => (
           <div key={post.id} className="post">
             <h3>{post.title}</h3>
             <p>{post.body}</p>
